@@ -34,45 +34,13 @@ def get_departures():
 
         if data:
             lines = [
-                "401",
                 "402",
-                "409",
-                "410",
-                "413",
-                "414",
-                "420",
-                "422",
-                "425",
-                "428X",
-                "429X",
-                "430X",
-                "432",
-                "433",
-                "434",
-                "435",
-                "436",
-                "437",
-                "438",
-                "439",
-                "440",
-                "441",
                 "442",
                 "443",
-                "444",
-                "445",
-                "471",
-                "474",
-                "491",
-                "496",
-                "497",
-                "25M",
-                "26M",
-                "423",
-                "449",
-                "71T",
+                "471"
             ]
-            lines_glasbruksgatan = ["25M", "26M", "423", "449"]
-            lines_slussbrogatan = ["71T"]
+#            lines_glasbruksgatan = ["25M", "26M", "423", "449"]
+#            lines_slussbrogatan = ["71T"]
             for departure in data["departures"]:
                 if departure["line"]["designation"] in lines:
                     departureinfo = {
@@ -88,10 +56,10 @@ def get_departures():
                     except KeyError:
                         departureinfo["stoppoint"] = ""
 
-                    if departure["line"]["designation"] in lines_glasbruksgatan:
-                        departureinfo["stoppoint"] = "Glasbruksgatan"
-                    elif departure["line"]["designation"] in lines_slussbrogatan:
-                        departureinfo["stoppoint"] += " (Slussbrogatan)"
+#                    if departure["line"]["designation"] in lines_glasbruksgatan:
+#                        departureinfo["stoppoint"] = "Glasbruksgatan"
+#                    elif departure["line"]["designation"] in lines_slussbrogatan:
+#                        departureinfo["stoppoint"] += " (Slussbrogatan)"
 
                     departures.append(departureinfo)
         else:
